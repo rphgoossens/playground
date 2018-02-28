@@ -10,31 +10,19 @@ import {Beer, Type} from '../../../out/models';
 })
 export class NewBeerComponent implements OnInit {
 
-  @Output() private onNewBeer = new EventEmitter<Beer>();
+  @Output() onNewBeer = new EventEmitter<Beer>();
 
-  private beerName: string;
-  private selectedBeerType: string;
-  private beerBrewery: string;
+  beer: Beer = {} as Beer;
+  beerTypes: string[];
 
-  private beerTypes: string[];
-
-  private error: string;
+  error: string;
 
   constructor(private apiClientService: ApiClientService) {
-    //this.beerTypes = Object.keys(Type)
     this.beerTypes = Object.keys(Type)
   }
 
   public postNewBeer() {
-    let beer: Beer;
-    beer = {
-      brewery: this.beerBrewery,
-      id: null,
-      name: this.beerName === '' ? null : this.beerName,
-      type: Type[this.selectedBeerType]
-    };
-
-    this.apiClientService.addToBeerRepositoryUsingPOST(beer)
+    this.apiClientService.addToBeerRepositoryUsingPOST(this.beer)
       .subscribe(resp => {
         this.pushBeer(resp.body);
       }, (resp => {
@@ -54,10 +42,7 @@ export class NewBeerComponent implements OnInit {
   }
 
   private reset() {
-    this.beerName = null;
-    this.selectedBeerType = null;
-    this.beerBrewery = null;
-
+    this.beer = {} as Beer;
     this.error = null;
   }
 

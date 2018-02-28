@@ -8,7 +8,7 @@
       <div class="form-group col-md-12">
         <label class="col-md-3 control-lable" for="input.name">Name</label>
         <div class="col-md-7">
-          <input [(ngModel)]="beerName" type="text" id="input.name" name="name" class="form-control input-sm"/>
+          <input [(ngModel)]="beer.name" type="text" id="input.name" name="name" class="form-control input-sm"/>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <div class="form-group col-md-12">
         <label class="col-md-3 control-lable" for="input.type">Beer type</label>
         <div class="col-md-7">
-          <select [(ngModel)]="selectedBeerType" id="input.type" name="type" class="form-control input-sm">
+          <select [(ngModel)]="beer.type" id="input.type" name="type" class="form-control input-sm">
             <option *ngFor="let beerType of beerTypes" [selected]="beerType.toString()=='INDIA_PALE_ALE'" [value]="beerType">{{beerType.toString()}}</option>
           </select>
         </div>
@@ -26,7 +26,7 @@
       <div class="form-group col-md-12">
         <label class="col-md-3 control-lable" for="input.brewery">Brewery</label>
         <div class="col-md-7">
-          <input [(ngModel)]="beerBrewery" type="text" id="input.brewery" name="brewery" class="form-control input-sm"/>
+          <input [(ngModel)]="beer.brewery" type="text" id="input.brewery" name="brewery" class="form-control input-sm"/>
         </div>
       </div>
     </div>
