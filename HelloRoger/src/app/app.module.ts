@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {NewBeerComponent} from './new-beer/new-beer.component';
+import {ApiClientService} from '../../out/index';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {NewBeerComponent} from './new-beer/new-beer.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ApiClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

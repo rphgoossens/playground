@@ -6,42 +6,44 @@ import {Beer, Type} from '../../../out/models';
   selector: 'app-new-beer',
   templateUrl: './new-beer.component.html',
   styleUrls: ['./new-beer.component.css'],
-  providers: [ApiClientService]
 })
 export class NewBeerComponent implements OnInit {
 
   @Output() onNewBeer = new EventEmitter<Beer>();
 
-  beer: Beer = {} as Beer;
-  beerTypes: string[];
+  public beer: Beer = {} as Beer;
+  public beerTypes: string[];
 
-  error: string;
+  public error: string;
 
   constructor(private apiClientService: ApiClientService) {
     this.beerTypes = Object.keys(Type)
   }
 
-  public postNewBeer() {
+  /**
+   * Call REST service to POST a new beer
+   */
+  public postNewBeer(): void {
     this.apiClientService.addToBeerRepositoryUsingPOST(this.beer)
       .subscribe(resp => {
         this.pushBeer(resp.body);
-      }, (resp => {
-        console.log(resp);
-        this.onError(resp.error.message);
+      }, (error => {
+        console.log(error);
+        this.onError(error.error.message);
       }));
   }
 
-  private pushBeer(beer: Beer) {
+  private pushBeer(beer: Beer): void {
     // add beer to app
     this.onNewBeer.emit(beer);
     this.reset();
   }
 
-  private onError(message: string) {
+  private onError(message: string): void {
     this.error = message;
   }
 
-  private reset() {
+  private reset(): void {
     this.beer = {} as Beer;
     this.error = null;
   }

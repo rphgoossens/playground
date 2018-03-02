@@ -6,27 +6,26 @@ import {Beer, Type} from '../../out/models';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ApiClientService]
 })
 export class AppComponent implements OnInit {
-  beers: Beer[];// = [{name: 'Brand', id: 1, brewery: 'IPA', type: Type.INDIA_PALE_ALE}];
+  public beers: Beer[];
 
   constructor(private apiClientService: ApiClientService) {
+  }
+
+  public onNewBeer(beer: Beer): void {
+    this.beers.push(beer);
   }
 
   ngOnInit() {
     //this.beers = [{name: 'Brand', id: 1, brewery: 'IPA', type: Type.INDIA_PALE_ALE}];
     this.apiClientService.getAllBeersUsingGET(null)
       .subscribe(resp => {
-        //console.log(resp.body)
-        //this.beers = {...resp.body};
         this.beers = resp.body;
+      }, error => {
+        console.log(error);
       });
 
-  }
-
-  onNewBeer(beer: Beer) {
-    this.beers.push(beer);
   }
 
 }
