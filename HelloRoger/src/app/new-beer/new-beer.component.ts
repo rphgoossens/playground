@@ -17,7 +17,8 @@ export class NewBeerComponent implements OnInit {
   public error: string;
 
   constructor(private apiClientService: ApiClientService) {
-    this.beerTypes = Object.keys(Type)
+    let beerTypes = (Object.keys(Type))
+    this.beerTypes = beerTypes;
   }
 
   /**
@@ -26,10 +27,10 @@ export class NewBeerComponent implements OnInit {
   public postNewBeer(): void {
     this.apiClientService.addToBeerRepositoryUsingPOST(this.beer)
       .subscribe(resp => {
-        this.pushBeer(resp.body);
+        this.pushBeer(resp.body)
       }, (error => {
         console.log(error);
-        this.onError(error.error.message);
+        this.onError(error.error.message)
       }));
   }
 
@@ -50,6 +51,5 @@ export class NewBeerComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
 }

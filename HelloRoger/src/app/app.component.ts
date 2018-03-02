@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiClientService} from '../../out/index';
 import {Beer, Type} from '../../out/models';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import {Beer, Type} from '../../out/models';
 export class AppComponent implements OnInit {
   public beers: Beer[];
 
-  constructor(private apiClientService: ApiClientService) {
+  constructor(private apiClientService: ApiClientService, private translate: TranslateService) {
+    translate.setDefaultLang('en');
   }
 
   public onNewBeer(beer: Beer): void {
@@ -18,7 +20,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.beers = [{name: 'Brand', id: 1, brewery: 'IPA', type: Type.INDIA_PALE_ALE}];
     this.apiClientService.getAllBeersUsingGET(null)
       .subscribe(resp => {
         this.beers = resp.body;
