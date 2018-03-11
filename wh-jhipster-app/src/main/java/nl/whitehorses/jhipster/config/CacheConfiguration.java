@@ -42,6 +42,9 @@ public class CacheConfiguration {
             cm.createCache(nl.whitehorses.jhipster.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(nl.whitehorses.jhipster.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(nl.whitehorses.jhipster.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(nl.whitehorses.jhipster.domain.Beer.class.getName(), jcacheConfiguration);
+            cm.createCache(nl.whitehorses.jhipster.domain.Brewery.class.getName(), jcacheConfiguration);
+            cm.createCache(nl.whitehorses.jhipster.domain.Brewery.class.getName() + ".beers", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

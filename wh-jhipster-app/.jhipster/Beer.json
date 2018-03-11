@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "brewery",
+            "otherEntityName": "brewery",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "BeerType",
+            "fieldValues": "PILSNER,LAGER,PALE_ALE,INDIA_PALE_ALE,PORTER,STOUT,OTHER"
+        }
+    ],
+    "changelogDate": "20180311191710",
+    "entityTableName": "beer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
