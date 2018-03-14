@@ -1,0 +1,12 @@
+{
+    "jhipsterApp": {
+        "brewerysummary": {
+            "home": {
+                "title": "BrewerySummary"
+            },
+            "brewery": {
+                "name": "Name"
+            }
+        }
+    }
+}

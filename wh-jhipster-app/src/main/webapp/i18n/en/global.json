@@ -5,6 +5,10 @@
         "menu": {
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "custom" : {
+                "main": "Custom",
+                "brewerySummary": "BrewerySummary"
+            },
             "entities": {
                 "main": "Entities",
                 "beer": "Beer",
