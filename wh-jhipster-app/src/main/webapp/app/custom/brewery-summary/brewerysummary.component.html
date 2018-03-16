@@ -7,17 +7,19 @@
     </div>
     <br/>
     <div class="table-responsive" *ngIf="brewerySummaries">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th><span jhiTranslate="jhipsterApp.brewerysummary.brewery.name">Name</span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let brewerySummary of brewerySummaries">
-                <td>{{brewerySummary.name}}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div *ngFor="let brewerySummary of brewerySummaries">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><span>{{brewerySummary.brewery}}</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let beer of brewerySummary.beers">
+                    <td>{{beer}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 export class Brewerysummary {
 
-    constructor(public name?: string,
+    constructor(public brewery?: string,
                 public beers?: string[]) {
     }
 }

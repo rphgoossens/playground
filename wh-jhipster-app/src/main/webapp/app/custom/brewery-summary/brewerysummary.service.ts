@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class BrewerysummaryService {
 
-    private resourceUrl = SERVER_API_URL + 'api/breweries';
+    private resourceUrl = SERVER_API_URL + 'api/brewery-summary';
 
     constructor(private http: HttpClient) {
     }
